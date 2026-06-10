@@ -20,7 +20,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 echo 'Running unit tests...'
-                bat '"C:\\Users\\GANESH\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" -m pytest tests/ -v'
+                bat '"C:\\Users\\GANESH\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pytest tests/ -v'
             }
         }
 
