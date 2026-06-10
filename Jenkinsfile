@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        PYTHON = "C:\\Users\\GANESH\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe"
+        PIP = "C:\\Users\\GANESH\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\pip.exe"
+    }
+
     stages {
 
         stage('Checkout') {
@@ -13,14 +18,14 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Python dependencies...'
-                bat 'pip install -r requirements.txt'
+                bat '"%PIP%" install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
                 echo 'Running unit tests...'
-                bat 'python -m pytest tests/ -v'
+                bat '"%PYTHON%" -m pytest tests/ -v'
             }
         }
 
